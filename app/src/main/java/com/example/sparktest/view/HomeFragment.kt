@@ -212,7 +212,7 @@ class HomeFragment : Fragment(R.layout.home_fragment), OnListItemClickListener,
      */
     private fun launchCamera() {
         val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        fileUri = Utils.createURI(requireContext())
+        fileUri = Utils.createURI(requireContext(), Utils.createTempFileName())
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri)
         startActivityForResult(cameraIntent, PICK_CAMERA_IMAGE_REQUEST)
     }

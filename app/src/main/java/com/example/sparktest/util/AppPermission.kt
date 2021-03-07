@@ -23,11 +23,11 @@ sealed class AppPermission(
 
     object READ_STORAGE : AppPermission(
         Manifest.permission.READ_EXTERNAL_STORAGE, 43,
-        R.string.camera_permission, R.string.camera_permission
+        R.string.storage_permission, R.string.storage_permission
     )
 
     object WRITE_STORAGE : AppPermission(
         Manifest.permission.WRITE_EXTERNAL_STORAGE, 44,
-        R.string.camera_permission, R.string.camera_permission
+        R.string.storage_permission, R.string.storage_permission
     )
 }

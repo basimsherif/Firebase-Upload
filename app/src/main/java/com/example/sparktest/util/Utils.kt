@@ -43,13 +43,17 @@ object Utils {
         return false
     }
 
+    fun createTempFileName():String{
+        return System.currentTimeMillis().toString() + ".jpg"
+    }
+
     /**
      * A utility method to create URI to use in camera picture upload
      */
-    fun createURI(context: Context):Uri{
+    fun createURI(context: Context, fileName:String):Uri{
         val path = File(context.externalCacheDir, "camera")
         if (!path.exists()) path.mkdirs()
-        val image = File(path, System.currentTimeMillis().toString() + ".jpg")
+        val image = File(path, fileName)
         return getUriForFile(
             context,
             context.packageName.toString() + ".provider",
