@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Spark Test</string>
+    <string name="error_firebase">Error while fetching images</string>
+    <string name="error_network">Sync failed! Please check your network connection</string>
+    <string name="retry">Retry</string>
+    <string name="empty">No images found!</string>
+    <string name="upload_from_gallery">Upload from gallery</string>
+    <string name="upload_from_camera">Upload from camera</string>
+    <string name="cancel">Cancel</string>
+    <string name="camera_permission">We need to access your camera to use this feature</string>
+    <string name="storage_permission">We need to access your storage to use this feature</string>
+    <string name="label_alert">Alert</string>
+    <string name="label_ask_again">Ask Again</string>
+    <string name="label_never_mind">Never Mind</string>
+    <string name="select_photo">Select Picture</string>
+</resources>

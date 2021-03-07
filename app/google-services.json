@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "150354708292",
+    "project_id": "sparktest-35ee3",
+    "storage_bucket": "sparktest-35ee3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150354708292:android:9d246d47628325ee37b911",
+        "android_client_info": {
+          "package_name": "com.example.sparktest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150354708292-dompdf2be24l2rkf1tm08s5oqp2kdvnd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCktLkkioCy8WCBXO6v76nZ9p5bwmaqb_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150354708292-dompdf2be24l2rkf1tm08s5oqp2kdvnd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
