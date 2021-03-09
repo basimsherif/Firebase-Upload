@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Build
 import androidx.core.content.FileProvider.getUriForFile
 import java.io.File
+import java.util.*
 
 
 /**
@@ -47,7 +48,7 @@ object Utils {
      * Util method to create a temp file name for camera upload feature
      */
     fun createTempFileName():String{
-        return System.currentTimeMillis().toString() + ".jpg"
+        return System.currentTimeMillis().toString() + UUID.randomUUID().toString() + ".jpg"
     }
 
     /**

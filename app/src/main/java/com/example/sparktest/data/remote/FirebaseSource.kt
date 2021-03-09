@@ -98,7 +98,8 @@ class FirebaseSource @Inject constructor(
         //Notify that we are starting upload process
         uploadLiveData.value = Resource.loading()
         val storageRef = storage.reference
-        val fileRef = storageRef.child("images/" + UUID.randomUUID().toString())
+        val fileName = System.currentTimeMillis().toString() + UUID.randomUUID().toString()
+        val fileRef = storageRef.child("images/$fileName")
         var uploadTask = fileRef.putFile(uri)
         //Handle success/failed upload process
         uploadTask.addOnFailureListener {
