@@ -14,9 +14,21 @@ import com.example.sparktest.data.model.Image
 @Dao
 interface ImageDao {
 
+    /**
+     * Get all images data from local DB and return as LiveData
+     */
     @Query("SELECT * FROM image_table")
     fun getAllImagesLiveData(): LiveData<List<Image>>
 
+    /**
+     * Get all images data from local DB
+     */
+    @Query("SELECT * FROM image_table")
+    fun getAllImages(): List<Image>
+
+    /**
+     * Insert list of images to local DB
+     */
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertAll(imageList: List<Image>)
 }

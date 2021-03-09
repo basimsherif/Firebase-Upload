@@ -18,6 +18,7 @@ data class Image (
     var downloadURL : String = ""
 ): Parcelable {
     companion object {
+        //Method to convert Firebase StorageReference object to Image object
         fun StorageReference.toImage(): Image? {
             return try {
                 Image().apply {

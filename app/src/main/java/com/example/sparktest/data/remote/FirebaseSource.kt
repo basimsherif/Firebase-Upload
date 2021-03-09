@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.sparktest.R
 import com.example.sparktest.data.model.Image
 import com.example.sparktest.data.model.Image.Companion.toImage
+import com.example.sparktest.util.EspressoIdlingResource
 import com.example.sparktest.util.Resource
 import com.example.sparktest.util.Utils
 import com.google.firebase.ktx.Firebase
@@ -15,7 +16,6 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
-import java.io.File
 import java.util.*
 import javax.inject.Inject
 
@@ -37,6 +37,9 @@ class FirebaseSource @Inject constructor(
         return uploadLiveData
     }
 
+    /**
+     * fetch all images from Firebase
+     */
     fun getImages(): Flow<List<Image>> {
         return callbackFlow {
             //Check if network available
@@ -80,6 +83,9 @@ class FirebaseSource @Inject constructor(
         }
     }
 
+    /**
+     * Upload image to Firebase
+     */
     fun upload(uri: Uri) {
         //Check if network available
         if (!Utils.isNetworkAvailable(applicationContext)) {
@@ -87,6 +93,8 @@ class FirebaseSource @Inject constructor(
                 Resource.error(applicationContext.getString(R.string.error_network))
             return
         }
+        //Will increment the idling resource to notify the test that API started
+        EspressoIdlingResource.increment()
         //Notify that we are starting upload process
         uploadLiveData.value = Resource.loading()
         val storageRef = storage.reference
@@ -95,8 +103,10 @@ class FirebaseSource @Inject constructor(
         //Handle success/failed upload process
         uploadTask.addOnFailureListener {
             uploadLiveData.value = Resource.error(it.message!!)
+            EspressoIdlingResource.decrement()
         }.addOnSuccessListener {
             uploadLiveData.value = Resource.success()
+            EspressoIdlingResource.decrement()
         }
     }
 }

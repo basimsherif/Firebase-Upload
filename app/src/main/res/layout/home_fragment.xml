@@ -32,7 +32,10 @@
             app:spanCount="3"
             tools:listitem="@layout/item_image" />
 
-        <include android:id="@+id/emptyView" layout="@layout/empty_view" android:visibility="gone"/>
+        <include
+            android:id="@+id/emptyView"
+            layout="@layout/empty_view"
+            android:visibility="gone" />
 
         <ProgressBar
             android:id="@+id/progressBar2"

@@ -2,16 +2,13 @@ package com.example.sparktest.data.repository
 
 import android.net.Uri
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
 import com.example.sparktest.data.local.LocalDataSource
 import com.example.sparktest.data.model.Image
 import com.example.sparktest.data.remote.FirebaseSource
 import com.example.sparktest.util.Resource
 import com.example.sparktest.util.performFirebaseSync
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**

@@ -15,6 +15,8 @@ import androidx.lifecycle.Observer
 import com.example.sparktest.R
 import com.example.sparktest.databinding.HomeFragmentBinding
 import com.example.sparktest.util.*
+import com.example.sparktest.util.AppPermission.Companion.REQUEST_CODE_CAMERA
+import com.example.sparktest.util.AppPermission.Companion.REQUEST_CODE_WRITESTORAGE
 import com.google.android.material.snackbar.Snackbar
 import com.theartofdev.edmodo.cropper.CropImage
 import dagger.hilt.android.AndroidEntryPoint
@@ -242,20 +244,20 @@ class HomeFragment : Fragment(R.layout.home_fragment), OnListItemClickListener,
         handlePermissionsResult(requestCode, permissions, grantResults,
             onPermissionGranted = {
                 when (requestCode) {
-                    42 -> launchCamera()
-                    44 -> launchGallery()
+                    AppPermission.REQUEST_CODE_CAMERA -> launchCamera()
+                    REQUEST_CODE_WRITESTORAGE -> launchGallery()
                 }
             },
             onPermissionDenied = {
                 when (requestCode) {
-                    42 -> {
+                    REQUEST_CODE_CAMERA -> {
                         Toast.makeText(
                             requireContext(),
                             getString(R.string.camera_permission),
                             Toast.LENGTH_LONG
                         ).show()
                     }
-                    44 -> {
+                    REQUEST_CODE_WRITESTORAGE -> {
                         Toast.makeText(
                             requireContext(),
                             getString(R.string.storage_permission),

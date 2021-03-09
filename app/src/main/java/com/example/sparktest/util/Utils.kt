@@ -43,6 +43,9 @@ object Utils {
         return false
     }
 
+    /**
+     * Util method to create a temp file name for camera upload feature
+     */
     fun createTempFileName():String{
         return System.currentTimeMillis().toString() + ".jpg"
     }

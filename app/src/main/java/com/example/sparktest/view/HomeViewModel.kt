@@ -31,6 +31,9 @@ class HomeViewModel @ViewModelInject constructor(
         return imagesData
     }
 
+    /**
+     * Upload image to firebase
+     */
     fun uploadToFirebase(uri: Uri){
         repository.uploadToFirebase(uri)
     }

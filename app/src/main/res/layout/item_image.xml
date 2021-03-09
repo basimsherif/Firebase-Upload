@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
         <variable
             name="data"
             type="com.example.sparktest.data.model.Image" />
+
         <variable
             name="callBack"
             type="com.example.sparktest.util.OnListItemClickListener" />
@@ -14,16 +16,16 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="@dimen/gallery_item_height"
-        app:cardCornerRadius="@dimen/cardview_corner_radius"
-        android:padding="@dimen/margin_16dp">
+        android:padding="@dimen/margin_16dp"
+        app:cardCornerRadius="@dimen/cardview_corner_radius">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:onClick="@{(v)->callBack.onListItemClick(v,data)}"
-            app:imageUrl="@{data.downloadURL}"
             android:scaleType="centerCrop"
+            app:imageUrl="@{data.downloadURL}"
             app:srcCompat="@drawable/placeholder" />
     </androidx.cardview.widget.CardView>
 </layout>

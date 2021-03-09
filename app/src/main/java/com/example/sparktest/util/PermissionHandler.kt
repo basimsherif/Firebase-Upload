@@ -3,6 +3,9 @@ package com.example.sparktest.util
 import androidx.core.content.PermissionChecker
 import androidx.fragment.app.Fragment
 
+/**
+ * Kotlin Extension methods for handling run time permissions
+ */
 fun Fragment.isGranted(permission: AppPermission) = run {
     context?.let {
         (PermissionChecker.checkSelfPermission(
